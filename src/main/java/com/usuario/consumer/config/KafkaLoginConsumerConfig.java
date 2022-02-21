@@ -13,7 +13,7 @@ import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
-import com.usuario.consumer.domain.Usuario;
+import com.usuario.consumer.domain.Login;
 
 @Configuration
 public class KafkaLoginConsumerConfig {
@@ -25,7 +25,7 @@ public class KafkaLoginConsumerConfig {
 	private String groupId;
 
 	@Bean
-	public ConsumerFactory<String, Usuario> loginConsumerFactory() {
+	public ConsumerFactory<String, Login> loginConsumerFactory() {
 		Map<String, Object> props = new HashMap<>();
 		
 		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
@@ -34,12 +34,12 @@ public class KafkaLoginConsumerConfig {
 		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
 		
 		return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(),
-				new JsonDeserializer<>(Usuario.class, false));
+				new JsonDeserializer<>(Login.class, false));
 	}
 
 	@Bean
-	public ConcurrentKafkaListenerContainerFactory<String, Usuario> loginKafkaListenerContainerFactory() {
-		ConcurrentKafkaListenerContainerFactory<String, Usuario> factory = new ConcurrentKafkaListenerContainerFactory<>();
+	public ConcurrentKafkaListenerContainerFactory<String, Login> loginKafkaListenerContainerFactory() {
+		ConcurrentKafkaListenerContainerFactory<String, Login> factory = new ConcurrentKafkaListenerContainerFactory<>();
 		factory.setConsumerFactory(loginConsumerFactory());
 		return factory;
 	}

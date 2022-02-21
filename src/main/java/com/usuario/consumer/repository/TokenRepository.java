@@ -37,10 +37,4 @@ public class TokenRepository {
 	public void delete(Login login) {
 		loginTokens.remove(login);
 	}
-	
-	public void listarTodos() {
-		for (Login login : loginTokens) {
-			System.out.println(login.toString());
-		}
-	}
 }

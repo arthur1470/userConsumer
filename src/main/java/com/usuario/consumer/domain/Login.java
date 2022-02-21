@@ -14,6 +14,13 @@ public class Login {
 		this.dataGerado = LocalDateTime.now();
 		this.dataExpiracao = dataGerado.plusMinutes(5);
 	}
+	
+	public Login(String cpf, String senha) {
+		this.cpf = cpf;
+		this.senha = senha;
+		this.dataGerado = LocalDateTime.now();
+		this.dataExpiracao = dataGerado.plusMinutes(5);
+	}
 
 	public String getCpf() {
 		return cpf;
