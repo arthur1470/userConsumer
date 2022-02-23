@@ -5,7 +5,6 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 import com.usuario.consumer.domain.Login;
-import com.usuario.consumer.domain.Usuario;
 import com.usuario.consumer.service.LoginService;
 
 @Component
@@ -21,7 +20,7 @@ public class LoginConsumer {
 	@KafkaHandler
 	public void consumeRegistroMessage(Login login) {
 		try {
-			Usuario usuario = loginService.logar(login);
+			loginService.logar(login);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

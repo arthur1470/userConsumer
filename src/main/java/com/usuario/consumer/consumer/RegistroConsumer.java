@@ -11,7 +11,7 @@ import com.usuario.consumer.service.RegistroService;
 @KafkaListener(topics = {"${register.topic.name}"}, groupId = "${spring.kafka.group-id}", containerFactory = "registroKafkaListenerContainerFactory")
 public class RegistroConsumer {
 
-	private RegistroService registroService;
+	private RegistroService registroService;	
 	
 	public RegistroConsumer(RegistroService registroService) {
 		this.registroService = registroService;

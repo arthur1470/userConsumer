@@ -21,6 +21,7 @@ public class RegistroService {
 			throw new Exception("Usuário já cadastrado.");
 		}
 		
-		usuarioRepository.save(usuario);		
+		
+		usuarioRepository.save(usuario);
 	}
 }

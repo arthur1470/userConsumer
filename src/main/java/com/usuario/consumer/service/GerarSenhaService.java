@@ -21,6 +21,7 @@ public class GerarSenhaService {
 	}
 
 	public void gerarSenha(String cpf) throws Exception {
+		
 		Usuario usuario = validarTrazerUsuario(cpf);
 		String senha = gerarSenhaDinamica();
 		processarTokenLogin(cpf, senha);
